@@ -21,7 +21,12 @@ export async function signUp(params:SignUpParams) {
         await db.collection('users').doc(uid).set({
             name: name,
             email: email
-        })        
+        })  
+        
+        return {
+            success: true,
+            message: 'Account created successfully. Please sign in'
+        }
     } catch (error: any) {
         console.error('error creating user', error)
         if(error.code === 'auth/email-already-exists'){

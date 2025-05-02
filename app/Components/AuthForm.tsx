@@ -78,9 +78,15 @@ const AuthForm = ({ type }: { type: FormType }) => {
         toast.success("Welcome back");
         router.push("/");
       }
-    } catch (error) {
+    } catch (error:any) {
       console.log(error);
-      toast.error("There was an error");
+    
+      if(error.code === 'auth/invalid-credential'){
+        toast.error("Invalid email or password.");
+        return
+      }
+    
+      toast.error("Error authenticating user");
     }
   }
 
