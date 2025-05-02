@@ -1,12 +1,8 @@
-import React from 'react'
-import AuthLayout from '../Layout'
-import AuthForm from '@/app/Components/AuthForm'
+import React from "react";
+import AuthForm from "@/app/Components/AuthForm";
 
 const page = () => {
-  return (
-  <AuthForm type="sign-in"/>
+  return <AuthForm type="sign-in" />;
+};
 
-  )
-}
-
-export default page
+export default page;
