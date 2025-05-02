@@ -1,6 +1,10 @@
 'use server';
 
-import { db } from "@/firebase/admin";
+import { auth, db } from "@/firebase/admin";
+import { cookies } from "next/headers";
+
+const ONE_WEEK = 60 * 60 * 24 * 7 // 60 sec, 60 min, 24 hr in a day, for 7 days a week * by milliseconsds - expires in a week,
+
 
 export async function signUp(params:SignUpParams) {
     const {uid, name, email, password} = params
@@ -32,4 +36,45 @@ export async function signUp(params:SignUpParams) {
             message: 'Failed to create an account'
         }
     }
+}
+
+export async function setSessionCookie(idToken:string){
+    const cookieStore = await cookies()
+
+    const sessionCookie = await auth.createSessionCookie(idToken, {
+        expiresIn: ONE_WEEK * 1000,
+      })
+
+    cookieStore.set('session', sessionCookie, {
+        maxAge: ONE_WEEK,
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production',
+        path: '/', 
+        sameSite: 'lax'
+    })
+}
+
+export async function signIn(params: SignInParams){
+    const {email, idToken} = params
+
+    const userRecord = await auth.getUserByEmail(email)
+
+    if(!userRecord){
+        return{
+            success: false,
+            message: 'User does not exist. Create an account'
+        }
+    }
+
+    await setSessionCookie(idToken)
+
+try {
+    
+} catch (error) {
+    console.error(error)
+    return {
+        success: false,
+        message: 'Login failure'
+    }
+}
 }
