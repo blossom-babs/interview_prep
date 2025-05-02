@@ -48,6 +48,7 @@ const Agent = ({ userName, userId, type }: AgentProps) => {
     vapi.on("message", onMessage);
     vapi.on("speech-start", onSpeechStart);
     vapi.on("speech-end", onSpeechEnd);
+    vapi.on("error", onError);
 
     return () => {
       vapi.off("call-start", onCallStart);
@@ -55,6 +56,7 @@ const Agent = ({ userName, userId, type }: AgentProps) => {
       vapi.off("message", onMessage);
       vapi.off("speech-start", onSpeechStart);
       vapi.off("speech-end", onSpeechEnd);
+      vapi.off("error", onError);
     };
   }, []);
 
@@ -78,10 +80,11 @@ const Agent = ({ userName, userId, type }: AgentProps) => {
     vapi.stop();
   };
 
+  
   const latestMessage = messages[messages.length]?.content;
+  console.log(latestMessage)
   const isCallInactiveOrFinished =
     callStatus === CallStatus.INACTIVE || callStatus === CallStatus.FINISHED;
-  const lastMessage = messages[messages.length - 1];
 
   return (
     <>
