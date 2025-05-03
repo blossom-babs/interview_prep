@@ -81,7 +81,7 @@ const Agent = ({ userName, userId, type }: AgentProps) => {
   };
 
   
-  const latestMessage = messages[messages.length]?.content;
+  const latestMessage = messages[messages.length - 1]?.content;
   console.log(latestMessage)
   const isCallInactiveOrFinished =
     callStatus === CallStatus.INACTIVE || callStatus === CallStatus.FINISHED;

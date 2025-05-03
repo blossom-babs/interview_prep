@@ -2,21 +2,20 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import React from "react";
 import Image from "next/image";
-import { dummyInterviews } from "@/constants";
 import InterviewCard from "../Components/InterviewCard";
+import { getCurrentUser } from "@/lib/actions/auth.action";
 import {
-  getCurrentUser,
   getInterviewsByUserId,
   getLatestInterviews,
-} from "@/lib/actions/auth.action";
+} from "@/lib/actions/general.action";
 
 const page = async () => {
   const user = await getCurrentUser();
 
   const [userInterviews, latestInterviews] = await Promise.all([
     getInterviewsByUserId(user?.id!),
-    getLatestInterviews({ userId: user?.id!})
-  ])
+    getLatestInterviews({ userId: user?.id! }),
+  ]);
 
   const hasPastInterviews = userInterviews?.length! > 0;
   const hasLatestInterviews = latestInterviews?.length! > 0;
@@ -59,15 +58,13 @@ const page = async () => {
       <section className="flex flex-col gap-6 mt-8">
         <h2>Take an interview</h2>
         <div className="interviews-section">
-         
-          {
-          hasLatestInterviews ?
-          latestInterviews!.map((interview) => (
-            <InterviewCard {...interview} key={interview.id} />
-          ))
-        :
-        <p>There are no interviews available</p> 
-        }
+          {hasLatestInterviews ? (
+            latestInterviews!.map((interview) => (
+              <InterviewCard {...interview} key={interview.id} />
+            ))
+          ) : (
+            <p>There are no interviews available</p>
+          )}
         </div>
       </section>
     </>
