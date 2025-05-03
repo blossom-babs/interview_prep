@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Voicr — Your Interview Prep Buddy
 
-## Getting Started
+**An AI-powered mock interview platform to help you practice and improve for your interviews.**
 
-First, run the development server:
+Voicr simulates real-time voice-based interviews using AI. It asks smart, tailored questions based on your experience and goals — and gives you actionable feedback to help you get better with every session.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+![Next.js](https://img.shields.io/badge/Next.js-000?style=for-the-badge&logo=next.js&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178c6?style=for-the-badge&logo=typescript&logoColor=white)
+![Vapi](https://img.shields.io/badge/Vapi_AI-voice--powered-blueviolet?style=for-the-badge)
+![ShadCN UI](https://img.shields.io/badge/ShadCN--UI-%23121212?style=for-the-badge)
+![Google Gemini](https://img.shields.io/badge/Gemini-Google-blue?style=for-the-badge&logo=google)
+![Vercel AI SDK](https://img.shields.io/badge/Vercel--AI--SDK-000?style=for-the-badge&logo=vercel)
+![MIT License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- ✅ Real-time, voice-based AI interviews (via [Vapi](https://vapi.ai))
+- 🧠 Interview questions generated using Google Gemini
+- 💬 Feedback tailored to your responses
+- 👤 Personalized dashboard: choose topics, experience level, and number of questions
+- 💻 Built with **Next.js**, **TypeScript**, **ShadCN UI**, and **Vercel AI SDK**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+## Try it out
+👉🏽 https://interview-prep-theta-gilt.vercel.app/
 
-To learn more about Next.js, take a look at the following resources:
+1. **Sign up or log in** to your account.
+2. Click on start practicing to generate questions
+3. Take your interview
+4. You’ll answer aloud; the AI listens, transcribes, and reacts in real-time.
+5. After the interview, you’ll receive feedback to help improve your responses.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
