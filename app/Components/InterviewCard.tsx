@@ -1,12 +1,13 @@
 import React from 'react'
 import dayjs from 'dayjs'
 import Image from 'next/image';
-import { getRandomInterviewCover } from '../utils';
 import Link from 'next/link';
 import DisplayTechIcons from './DisplayTechIcons';
+import { getRandomInterviewCover } from '@/lib/utils';
+import { getFeedbackByInterviewId } from '@/lib/actions/general.action';
 
-const InterviewCard = ({id, userId, type, techstack, level, questions, finalized, createdAt, role}: InterviewCardProps &{level:string, questions:string[], finalized:boolean} ) => {
-  const feedback = null as Feedback | null
+const InterviewCard = async ({id, userId, type, techstack, level, questions, finalized, createdAt, role}: InterviewCardProps &{level:string, questions:string[], finalized:boolean} ) => {
+  const feedback = id && userId ? await getFeedbackByInterviewId({interviewId:id!, userId:userId!}) : null
 
   const normalizedType  = /mix/gi.test(type) ? 'Mixed' : type;
   const formattedDate = dayjs(feedback?.createdAt || createdAt || Date.now()).format('MMM D, YYYY')
@@ -39,7 +40,7 @@ const InterviewCard = ({id, userId, type, techstack, level, questions, finalized
 <div className='flex flex-row justify-between'>
 <DisplayTechIcons techStack={techstack}/>
 <button className='btn-primary'>
-    <Link href={feedback ? `interview/${id}/feedback` : `/interview/${id}`}>{feedback ? 'Check feedback' : 'Take interview'}</Link>
+    <Link href={feedback ? `/interview/${id}/feedback` : `/interview/${id}`}>{feedback ? 'Check feedback' : 'Take interview'}</Link>
 </button>
 </div>
 

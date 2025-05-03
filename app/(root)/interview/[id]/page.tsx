@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { getRandomInterviewCover } from "@/app/utils";
+import { getRandomInterviewCover } from "@/lib/utils";
 import { getInterviewById } from "@/lib/actions/general.action";
 import { redirect } from "next/navigation";
 import DisplayTechIcons from "@/app/Components/DisplayTechIcons";

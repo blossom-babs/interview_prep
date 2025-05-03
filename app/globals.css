@@ -332,3 +332,8 @@
     transform: translateY(0);
   }
 }
+
+
+.section-feedback ol{
+  @apply list-decimal
+}
