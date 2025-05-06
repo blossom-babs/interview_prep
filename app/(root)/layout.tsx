@@ -3,6 +3,8 @@ import React, { ReactNode } from "react";
 import Image from "next/image";
 import { isAuthenticated } from "@/lib/actions/auth.action";
 import { redirect } from "next/navigation";
+import { clearCookies } from "@/lib/utils";
+import Logout from "../Components/Logout";
 
 const RootLayout =   async ({ children }: { children: ReactNode}) => {
 
@@ -15,7 +17,7 @@ const RootLayout =   async ({ children }: { children: ReactNode}) => {
   return (
 
     <div className="root-layout">
-      <nav>
+      <nav className="flex justify-between">
         <Link href="/" className="flex items-center gap-2">
           {/* TBD | TO BE DONE: REPLACE LOGO */}
           <Image
@@ -24,8 +26,10 @@ const RootLayout =   async ({ children }: { children: ReactNode}) => {
             width={38}
             height={32}
           />
-          <h2 className="text-primary-100">Interview Prep.</h2>
+          <h2 className="text-primary-100">Voicr.</h2>
         </Link>
+
+
       </nav>
       {children}
     </div>

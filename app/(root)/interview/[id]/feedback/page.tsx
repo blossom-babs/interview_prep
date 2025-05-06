@@ -19,7 +19,7 @@ const Page = async ({params}:RouteParams) => {
       const formattedDate = dayjs(feedback?.createdAt).format('MMM D, YYYY h:mm A')
     
   return (
-    <section className='section-feedback'>
+    <section className='section-feedback max-w-2xl mx-auto'>
       <div className="flex flex-row justify-center">
       <h1 className='text-4xl font-semibold'>Feedback on the Interview - <span className='capitalize'>{interview.role}</span></h1>
 
@@ -30,13 +30,13 @@ const Page = async ({params}:RouteParams) => {
 
 </div>
       </div>
-      <p>
+      <p className='flex justify-between '>
         Overall impression: {feedback?.totalScore}/100
         <span>{formattedDate}</span>
       </p>
       <p>{feedback?.finalAssessment}</p>
       <h2>Breakdown of Evaluation</h2>
-      <ol>
+      <ol className='grid gap-5'>
       {
         feedback?.categoryScores.map((category, index) => (
 <li key={category.name}>

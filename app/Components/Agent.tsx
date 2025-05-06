@@ -155,7 +155,7 @@ const Agent = ({
           <div className="card-content">
             {/* TBD - chnage this guy */}
             <Image
-              src="/user-avatar.png"
+              src="/user-avatar-2.png"
               alt="User"
               width={540}
               height={540}

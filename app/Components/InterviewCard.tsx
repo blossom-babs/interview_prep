@@ -6,7 +6,7 @@ import DisplayTechIcons from './DisplayTechIcons';
 import { getRandomInterviewCover } from '@/lib/utils';
 import { getFeedbackByInterviewId } from '@/lib/actions/general.action';
 
-const InterviewCard = async ({id, userId, type, techstack, level, questions, finalized, createdAt, role}: InterviewCardProps &{level:string, questions:string[], finalized:boolean} ) => {
+const InterviewCard = async ({id, coverImg, userId, type, techstack, level, questions, finalized, createdAt, role}: InterviewCardProps &{level:string, questions:string[], finalized:boolean, coverImg:string} ) => {
   const feedback = id && userId ? await getFeedbackByInterviewId({interviewId:id!, userId:userId!}) : null
 
   const normalizedType  = /mix/gi.test(type) ? 'Mixed' : type;
@@ -18,7 +18,7 @@ const InterviewCard = async ({id, userId, type, techstack, level, questions, fin
     <div className='absolute top-0 right-0 w-fit px-4 py-2 rounded-bl-lg bg-light-600'>
         <p className='badge-text'>{normalizedType}</p>
     </div>
-    <Image src={getRandomInterviewCover()} alt="Cover image" width={90} height={90} className='rounded-full object-fit size-[90px]'/>
+    <Image src={coverImg || getRandomInterviewCover()} alt="Cover image" width={90} height={90} className='rounded-full object-fit size-[90px]'/>
 <h3 className='mt-5 capitalize'>
     {role} Interview
 </h3>
