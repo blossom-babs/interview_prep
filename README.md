@@ -21,8 +21,32 @@ Voicr simulates real-time voice-based interviews using AI. It asks smart, tailor
 - 💻 Built with **Next.js**, **TypeScript**, **ShadCN UI**, and **Vercel AI SDK**
 
 
+## 🛠️ Getting Started (Locally)
+
+To run this project on your local machine:
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/blossom-babs/interview_prep
+cd interview_prep
+
+[npm | pnpm | yarn] install
+
+//.env.local
+
+FIREBASE_PROJECT_ID=
+FIREBASE_PRIVATE_KEY_ID=
+FIREBASE_PRIVATE_KEY=
+FIREBASE_CLIENT_EMAIL=
+GOOGLE_GENERATIVE_AI_API_KEY=
+NEXT_PUBLIC_VAPI_WEB_TOKEN=
+NEXT_PUBLIC_VAPI_WORKFLOW_ID=
+NEXT_PUBLIC_BASE_URL="https://interview-prep-theta-gilt.vercel.app/"
+
+```
 ## Try it out
-👉🏽 https://interview-prep-theta-gilt.vercel.app/
+👉🏽 https://interview-prep-theta-gilt.vercel.app/  or localhost
 
 1. **Sign up or log in** to your account.
 2. Click on start practicing to generate questions

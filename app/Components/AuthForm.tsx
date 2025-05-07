@@ -128,7 +128,10 @@ const AuthForm = ({ type }: { type: FormType }) => {
               type="password"
             />
 
-            <Button className="btn" type="submit">
+{type==='sign-up' &&
+            <p className="">⚠️ Sign up temporarily disabled.</p>
+}
+            <Button disabled={type==='sign-up'} className="btn" type="submit">
               {isSignin ? "Sign in" : "Create an account"}
             </Button>
           </form>
